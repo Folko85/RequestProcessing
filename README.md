@@ -18,5 +18,5 @@
 
 * Выполните mvn clean package и дождитесь сборки jar-файла.
 * Выполните в терминале docker-compose up -d в папке проекта и дождитесь поднятия контейнеров
-* Откройте в браузере localhost:8080/swagger-ui/
+* Откройте в браузере http://localhost:8080/swagger-ui/index.html#/
 

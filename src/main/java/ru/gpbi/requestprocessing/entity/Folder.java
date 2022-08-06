@@ -1,7 +1,6 @@
 package ru.gpbi.requestprocessing.entity;
 
 import lombok.Data;
-import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,12 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Accessors(chain = true)
 @Document(collection = "folders")
 public class Folder {
 
 		@Id
-		private Long id;
+		private String id;
 
 		@Field(name = "folder name")
 		private String folderName;
