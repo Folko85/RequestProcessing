@@ -1,5 +1,7 @@
 package ru.gpbi.requestprocessing.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,11 +18,13 @@ import java.util.List;
 @RestController
 @RequestMapping("folders")
 @AllArgsConstructor
+@Tag(name = "Контроллер для работы с папками")
 public class FolderController {
 
 		private final FolderService folderService;
 
 		@PostMapping("/create")
+		@Operation(summary = "Добавить папку")
 		public ResponseFolderDto create(RequestFolderDto folderDto) {
 				return folderService.save(folderDto);
 		}
@@ -31,6 +35,7 @@ public class FolderController {
 		}
 
 		@GetMapping("/all")
+		@Operation(summary = "Получить все папки")
 		public List<ResponseFolderDto> getAll() {
 				return folderService.findAll();
 		}

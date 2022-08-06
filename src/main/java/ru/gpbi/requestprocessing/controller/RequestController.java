@@ -1,5 +1,7 @@
 package ru.gpbi.requestprocessing.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,11 +20,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/requests")
 @AllArgsConstructor
+@Tag(name = "Контроллер для работы с запросами")
 public class RequestController {
 
 		private final RequestService requestService;
 
 		@PostMapping("/create")
+		@Operation(summary = "Добавить запрос")
 		public ResponseRequestDto create(@RequestBody RequestRequestDto requestDto) {
 				return requestService.save(requestDto);
 		}
@@ -33,6 +37,7 @@ public class RequestController {
 		}
 
 		@GetMapping("/all")
+		@Operation(summary = "Получить все запросы")
 		public List<ResponseRequestDto> getAll() {
 				return requestService.findAll();
 		}
