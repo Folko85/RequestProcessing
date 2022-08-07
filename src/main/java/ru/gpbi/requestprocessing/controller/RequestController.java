@@ -33,7 +33,7 @@ public class RequestController {
 
 		@PutMapping("/add/tags")
 		@Operation(summary = "Добавить теги к запросу")
-		public ResponseRequestDto addTag(RequestTagLinkDto tagLinkDto) {
+		public ResponseRequestDto addTag(@RequestBody RequestTagLinkDto tagLinkDto) {
 				return requestService.updateRequest(tagLinkDto);
 		}
 

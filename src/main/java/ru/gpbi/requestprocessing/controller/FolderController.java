@@ -26,7 +26,7 @@ public class FolderController {
 
 		@PostMapping("/create")
 		@Operation(summary = "Добавить папку")
-		public ResponseFolderDto create(RequestFolderDto folderDto) {
+		public ResponseFolderDto create(@RequestBody RequestFolderDto folderDto) {
 				return folderService.save(folderDto);
 		}
 
