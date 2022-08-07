@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.gpbi.requestprocessing.entity.Folder;
 
 @Repository
-public interface FolderRepository extends MongoRepository<Folder, Long> {
+public interface FolderRepository extends MongoRepository<Folder, String> {
 }

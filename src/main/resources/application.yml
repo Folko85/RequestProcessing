@@ -3,3 +3,7 @@ spring:
     mongodb:
       database: test
       port: 27018
+
+links:
+  request:
+    tag: 10

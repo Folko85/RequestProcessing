@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.gpbi.requestprocessing.entity.Tag;
 
 @Repository
-public interface TagRepository extends MongoRepository<Tag, Long> {
+public interface TagRepository extends MongoRepository<Tag, String> {
 }

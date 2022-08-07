@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.gpbi.requestprocessing.entity.Request;
 
 @Repository
-public interface RequestRepository extends MongoRepository<Request, Long> {
+public interface RequestRepository extends MongoRepository<Request, String> {
 }
