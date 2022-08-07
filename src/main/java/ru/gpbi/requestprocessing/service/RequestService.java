@@ -10,6 +10,7 @@ import ru.gpbi.requestprocessing.mapper.RequestMapper;
 import ru.gpbi.requestprocessing.model.request.RequestRequestDto;
 import ru.gpbi.requestprocessing.model.request.RequestTagLinkDto;
 import ru.gpbi.requestprocessing.model.response.ResponseRequestDto;
+import ru.gpbi.requestprocessing.repository.FolderRepository;
 import ru.gpbi.requestprocessing.repository.RequestRepository;
 import ru.gpbi.requestprocessing.repository.TagRepository;
 
@@ -21,6 +22,7 @@ public class RequestService {
 
 		private final RequestRepository requestRepository;
 		private final TagRepository tagRepository;
+		private final FolderRepository folderRepository;
 		private final RequestMapper requestMapper;
 		private final LimitProperties limitProperties;
 
@@ -57,4 +59,16 @@ public class RequestService {
 
 		}
 
+		public List<ResponseRequestDto> findByFolderName(String folderName) {
+				return folderRepository.findByFolderName(folderName)
+								.orElseThrow(() -> new EntityNotFoundException(String.format("Folder %s not found", folderName)))
+								.getRequests().stream().map(requestMapper::mapToDto).toList();
+		}
+
+		public List<ResponseRequestDto> findByTagName(String tagName) {
+				return requestRepository.findByTagName(tagName).stream()
+								.map(request -> requestRepository.findById(request.getId())
+												.orElseThrow(() -> new EntityNotFoundException("Some Requests not found")))
+								.map(requestMapper::mapToDto).toList();
+		}
 }

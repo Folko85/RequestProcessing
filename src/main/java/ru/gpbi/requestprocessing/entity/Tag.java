@@ -12,6 +12,6 @@ public class Tag {
 		@Id
 		private String id;
 
-		@Field(name = "tag name")
+		@Field(name = "tag_name")
 		private String tagName;
 }

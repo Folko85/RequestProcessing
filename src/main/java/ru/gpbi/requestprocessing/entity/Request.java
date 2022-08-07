@@ -18,7 +18,7 @@ public class Request {
 
 		private String text;
 
-		@Field(name = "modified date")
+		@Field(name = "modified_date")
 		private Long modifiedDate;
 
 		private Long length;

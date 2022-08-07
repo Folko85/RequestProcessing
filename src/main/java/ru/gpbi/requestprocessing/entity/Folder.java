@@ -16,7 +16,7 @@ public class Folder {
 		@Id
 		private String id;
 
-		@Field(name = "folder name")
+		@Field(name = "folder_name")
 		private String folderName;
 
 		@DBRef

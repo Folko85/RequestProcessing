@@ -15,7 +15,6 @@ import ru.gpbi.requestprocessing.model.request.RequestTagLinkDto;
 import ru.gpbi.requestprocessing.model.response.ResponseRequestDto;
 import ru.gpbi.requestprocessing.service.RequestService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -44,14 +43,16 @@ public class RequestController {
 				return requestService.findAll();
 		}
 
-		@GetMapping("/byTag/{tagId}")
-		public List<ResponseRequestDto> getByTag(@PathVariable Long tagId) {
-				return new ArrayList<>();
+		@GetMapping("/byTag/{tagName}")
+		@Operation(summary = "Получить все запросы по тегу")
+		public List<ResponseRequestDto> getByTag(@PathVariable String tagName) {
+				return requestService.findByTagName(tagName);
 		}
 
-		@GetMapping("/byFolder/{folderId}")
-		public List<ResponseRequestDto> getByFolder(@PathVariable Long folderId) {
-				return new ArrayList<>();
+		@GetMapping("/byFolder/{folderName}")
+		@Operation(summary = "Получить все запросы по идентификатору папки")
+		public List<ResponseRequestDto> getByFolder(@PathVariable String folderName) {
+				return requestService.findByFolderName(folderName);
 		}
 
 }
