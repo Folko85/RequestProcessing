@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.gpbi.requestprocessing.model.request.RequestRequestDto;
+import ru.gpbi.requestprocessing.model.request.RequestTagLinkDto;
 import ru.gpbi.requestprocessing.model.response.ResponseRequestDto;
 import ru.gpbi.requestprocessing.service.RequestService;
 
@@ -31,9 +32,10 @@ public class RequestController {
 				return requestService.save(requestDto);
 		}
 
-		@PutMapping("/add/tags/{tagId}")
-		public ResponseRequestDto addTag(@PathVariable Long tagId) {
-				return new ResponseRequestDto();
+		@PutMapping("/add/tags")
+		@Operation(summary = "Добавить теги к запросу")
+		public ResponseRequestDto addTag(RequestTagLinkDto tagLinkDto) {
+				return requestService.updateRequest(tagLinkDto);
 		}
 
 		@GetMapping("/all")

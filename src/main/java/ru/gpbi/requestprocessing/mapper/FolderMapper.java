@@ -5,7 +5,7 @@ import ru.gpbi.requestprocessing.entity.Folder;
 import ru.gpbi.requestprocessing.model.request.RequestFolderDto;
 import ru.gpbi.requestprocessing.model.response.ResponseFolderDto;
 
-@Mapper(componentModel = "spring", uses = RequestMapper.class)
+@Mapper(componentModel = "spring", uses = {RequestMapper.class, TagMapper.class})
 public interface FolderMapper {
 
 		ResponseFolderDto mapToDto(Folder folder);

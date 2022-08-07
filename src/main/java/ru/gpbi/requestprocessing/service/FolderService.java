@@ -42,7 +42,6 @@ public class FolderService {
 								.forEach(request -> folder.getRequests().add(request));
 				folderRepository.save(folder);
 				return folderMapper.mapToDto(folder);
-
 		}
 
 		private void checkLimits(List<String> requestIds) {
