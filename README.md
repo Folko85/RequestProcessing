@@ -8,7 +8,6 @@
 * OpenAPI 3.0
 * Maven
 * MongoDb
-* ElasticSearch
 * Docker-Compose
 * Junit5
 * TestContainers
